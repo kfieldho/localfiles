@@ -56,6 +56,10 @@ else
 fi
 unset color_prompt force_color_prompt
 
+# Append to history after every command so that killed terminals etc. don't loose history
+# Use "history -n" to reload the current history file
+export PROMPT_COMMAND="history -a"
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
