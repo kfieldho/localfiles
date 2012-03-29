@@ -115,6 +115,12 @@ if [ -f ~/.local/bin/bashmarks.sh ]; then
 	. ~/.local/bin/bashmarks.sh
 fi
 
+# Add local reuby gems paths, mostly for tmuxinator
+export PATH=${PATH}:~/.gem/ruby/1.8/bin/
+
+# Activate tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
 # For macports
 if [ -d /opt/local/bin ]; then
 	export PATH=/opt/local/bin:${PATH}
