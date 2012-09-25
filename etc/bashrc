@@ -93,6 +93,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias vv="du --max-depth=1 -k | sort -nr | cut -f2 | xargs -d '\n' du -sh"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
