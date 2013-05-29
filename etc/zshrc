@@ -1,0 +1,33 @@
+source ~/.local/zshuery/zshuery.sh
+load_defaults
+load_aliases
+load_lol_aliases
+load_completion ~/.local/zsh-completions
+load_correction
+
+parse_git_branch() {
+	(git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
+}
+
+prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(parse_git_branch)$(ruby_version)%{$reset_color%}'
+
+# For macports
+if [ -d /opt/local/bin ]; then
+	export PATH=/opt/local/bin:${PATH}
+fi
+
+if [ -d /opt/local/sbin ]; then
+	export PATH=/opt/local/sbin:${PATH}
+fi
+
+export PATH=~/.local/bin:${PATH}
+
+set -o vi
+
+chpwd() {
+	update_terminal_cwd
+}
+
+tmake () { make  $@ 2>&1 | tee make.out; }
+tscons () { scons  $@ 2>&1 | tee scons.out; }
+hgrep() { history | grep $@; }
