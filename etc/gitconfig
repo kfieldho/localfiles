@@ -1,0 +1,5 @@
+[user]
+	name = Keith Fieldhouse
+	email = keith.fieldhouse@kitware.com
+[alias]                                                                                                                                                                              
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit                                         
