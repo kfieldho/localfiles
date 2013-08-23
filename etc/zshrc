@@ -9,7 +9,23 @@ parse_git_branch() {
 	(git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
 }
 
-prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(parse_git_branch)$(ruby_version)%{$reset_color%}'
+parse_hg_branch() {
+	if ! HG_ROOT=$(hg root) 2> /dev/null; then
+		# not an HG repository, quit
+		return
+	fi
+	BOOKMARK=$(cat "$HG_ROOT"/.hg/bookmarks.current 2> /dev/null)
+	if [ -n "$BOOKMARK" ]; then
+		# have a current bookmark, display that
+		echo $BOOKMARK
+		return
+	fi
+	# display the current branch or 'default'
+	cat "$HG_ROOT"/.hg/branch 2> /dev/null || echo 'default'
+}
+
+
+prompts '%{$fg_bold[green]%}$(COLLAPSED_DIR)%{$reset_color%}$(virtualenv_info) %{$fg[yellow]%}$(prompt_char)%{$reset_color%} ' '%{$fg[red]%}$(parse_hg_branch)$(parse_git_branch)$(ruby_version)%{$reset_color%}'
 
 # For macports
 if [ -d /opt/local/bin ]; then
@@ -30,4 +46,4 @@ chpwd() {
 
 tmake () { make  $@ 2>&1 | tee make.out; }
 tscons () { scons  $@ 2>&1 | tee scons.out; }
-hgrep() { history | grep $@; }
+hgrep() { history 1 | grep $@; }
