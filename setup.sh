@@ -11,7 +11,7 @@ dot_vim_repo="https://github.com/kfieldho/vimfiles.git"
 my_home=${HOME}
 
 # For testing
-my_home=~/tmp/HOME
+# my_home=~/tmp/HOME
 
 cd ${my_home}
 
