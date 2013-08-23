@@ -1,0 +1,28 @@
+[ui]
+merge = dw
+username=Keith Fieldhouse <keith@rexmere.com>
+ignore=/Users/kfieldho/.hgignore_global
+[extensions]
+hgext.extdiff =
+purge=
+color=
+graphlog=
+pager=
+rebase=
+[pager]
+pager = LESS='FSRX' less
+attend = cat, diff, glog, log, incoming, outgoing, lg, show, lga, dlog, nlog, sglog, slog, help
+[alias]
+lg = glog --style=/Users/kfieldho/.local/hg/map-cmdline.sglog
+dlog = log --style=/Users/kfieldho/.local/hg/map-cmdline.dlog
+nlog = log --style=/Users/kfieldho/.local/hg/map-cmdline.nlog
+sglog = log --style=/Users/kfieldho/.local/hg/map-cmdline.sglog
+slog = log --style=/Users/kfieldho/.local/hg/map-cmdline.slog
+
+
+
+[extdiff]
+cmd.dw = /Applications/DeltaWalker.app/ContentsMacOS/hg
+[merge-tools]
+dw.executable = /Applications/DeltaWalker.app/ContentsMacOS/hg
+dw.args = $local $other $base -merged=$output
