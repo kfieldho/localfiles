@@ -104,6 +104,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+platformstr=$(uname)
+if [ $platformstr == "Linux" ]; then
+	alias tmux="TERM=xterm-256color tmux"
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
