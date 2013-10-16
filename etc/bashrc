@@ -104,10 +104,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-platformstr=$(uname)
-if [ $platformstr == "Linux" ]; then
-	alias tmux="TERM=xterm-256color tmux"
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -129,6 +125,12 @@ export PATH=${PATH}:~/.gem/ruby/1.8/bin
 
 # Activate tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+platformstr=$(uname)
+if [ $platformstr == "Linux" ]; then
+	alias tmux="TERM=xterm-256color tmux"
+	alias mux="TERM=xterm-256color mux"
+fi
 
 # For macports
 if [ -d /opt/local/bin ]; then
