@@ -120,7 +120,7 @@ if [ -f ~/.local/bin/bashmarks.sh ]; then
 fi
 
 # Add local reuby gems paths, mostly for tmuxinator
-export PATH=${PATH}:~/.gem/ruby/1.8/bin/
+export PATH=${PATH}:~/.gem/ruby/1.8/bin
 
 # Activate tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
