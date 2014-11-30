@@ -136,6 +136,12 @@ if [ $platformstr == "Darwin" ]; then
 	alias mux="TERM=screen-256color mux"
 fi
 
+
+#if [ -d /Users/kfieldho/anaconda/bin ]; then
+	# added by Anaconda 1.8.0 installer
+#	export PATH="/Users/kfieldho/anaconda/bin:$PATH"
+#fi
+
 # For macports
 if [ -d /opt/local/bin ]; then
 	export PATH=/opt/local/bin:${PATH}
@@ -145,9 +151,22 @@ if [ -d /opt/local/sbin ]; then
 	export PATH=/opt/local/sbin:${PATH}
 fi
 
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
+fi
+
+if [ -f /Applications/DeltaWalker.app/Contents/MacOS/dw ]; then
+	alias dw="/Applications/DeltaWalker.app/Contents/MacOS/dw"
+fi
+
 export PATH=~/.local/bin:${PATH}
 
 set -o vi
+
+if [ -d $(brew --prefix)/bin ]; then
+	export PATH=$(brew --prefix)/bin:${PATH}
+fi
 
 # Some handy functions
 tmake () { make  $@ 2>&1 | tee make.out; }
