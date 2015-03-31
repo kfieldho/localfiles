@@ -156,6 +156,9 @@ if [ -f /Applications/DeltaWalker.app/Contents/MacOS/dw ]; then
 fi
 
 export PATH=~/.local/bin:${PATH}
+if [ -d ~/.local-$(hostname)/bin ]; then
+	export PATH=~/.local-$(hostname)/bin:${PATH}
+fi
 
 set -o vi
 
