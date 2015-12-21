@@ -1,9 +1,9 @@
 [submodule "zshuery"]
 	path = zshuery
-	url = git@github.com:myfreeweb/zshuery.git
+	url = https://github.com/myfreeweb/zshuery.git
 [submodule "zsh-completions"]
 	path = zsh-completions
-	url = git://github.com/zsh-users/zsh-completions.git
+	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "gnome-terminal-colors-solarized"]
 	path = gnome-terminal-colors-solarized
-	url = git@github.com:kfieldho/gnome-terminal-colors-solarized.git
+	url = https://github.com/kfieldho/gnome-terminal-colors-solarized.git
