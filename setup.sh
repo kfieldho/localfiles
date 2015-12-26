@@ -50,3 +50,5 @@ ln -s .local/etc/gitconfig ${my_home}/.gitconfig
 
 [ -f ${my_home}/.vimrc ] && mv ${my_home}/.vimrc ${my_home}/vimrc.${NOW}
 ln -s .vim/vimrc ${my_home}/.vimrc
+
+touch ${my_home}/.kfieldho
