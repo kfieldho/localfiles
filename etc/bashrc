@@ -160,8 +160,12 @@ if [ -d ~/.local-$(hostname)/bin ]; then
 	export PATH=~/.local-$(hostname)/bin:${PATH}
 fi
 
+# For MacPorts, mostly
+export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
+
 set -o vi
 
+# For Homebrew
 if [ -f /usr/local/bin/brew ]; then
 	if [ -d $(brew --prefix)/bin ]; then
 		export PATH=$(brew --prefix)/bin:${PATH}
