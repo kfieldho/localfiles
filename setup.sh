@@ -18,37 +18,37 @@ cd ${my_home}
 #+
 # Get My Git Repos if they're not there
 #-
-[ -d ${my_home}/.local ] || git clone ${dot_local_repo} .local
+[ -d ${my_home}/.kfieldho ] || git clone ${dot_local_repo} .kfieldho
 [ -d ${my_home}/.vim ] || git clone ${dot_vim_repo} .vim
 
 #+
 # Now update them
 #-
-cd ${my_home}/.local && git checkout master && git pull && git submodule update --init
+cd ${my_home}/.kfieldho && git checkout master && git pull && git submodule update --init
 cd ${my_home}/.vim && git checkout master && git pull && git submodule update --init
 
 #+
 # Set up dot files (purposely making relative links)
 #-
 [ -f ${my_home}/.bashrc ] && mv ${my_home}/.bashrc ${my_home}/bashrc.${NOW}
-ln -s .local/etc/bashrc ${my_home}/.bashrc
+ln -s .kfieldho/etc/bashrc ${my_home}/.bashrc
 
 [ -f ${my_home}/.bash_profile ] && mv ${my_home}/.bash_profile ${my_home}/bash_profile.${NOW}
-ln -s .local/etc/bash_profile ${my_home}/.bash_profile
+ln -s .kfieldho/etc/bash_profile ${my_home}/.bash_profile
 
 [ -f ${my_home}/.zshrc ] && mv ${my_home}/.zshrc ${my_home}/zshrc.${NOW}
-ln -s .local/etc/zshrc ${my_home}/.zshrc
+ln -s .kfieldho/etc/zshrc ${my_home}/.zshrc
 
 [ -f ${my_home}/.tmux.conf ] && mv ${my_home}/.tmux.conf ${my_home}/tmux.conf.${NOW}
-ln -s .local/etc/tmux.conf ${my_home}/.tmux.conf
+ln -s .kfieldho/etc/tmux.conf ${my_home}/.tmux.conf
 
 [ -f ${my_home}/.hgrc ] && mv ${my_home}/.hgrc ${my_home}/hgrc.${NOW}
-ln -s .local/etc/hgrc ${my_home}/.hgrc
+ln -s .kfieldho/etc/hgrc ${my_home}/.hgrc
 
 [ -f ${my_home}/.gitconfig ] && mv ${my_home}/.gitconfig ${my_home}/gitconfig.${NOW}
-ln -s .local/etc/gitconfig ${my_home}/.gitconfig
+ln -s .kfieldho/etc/gitconfig ${my_home}/.gitconfig
 
 [ -f ${my_home}/.vimrc ] && mv ${my_home}/.vimrc ${my_home}/vimrc.${NOW}
 ln -s .vim/vimrc ${my_home}/.vimrc
 
-touch ${my_home}/.kfieldho
+touch ${my_home}/.kfieldho-installed

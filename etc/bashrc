@@ -116,8 +116,8 @@ if [ -f /etc/bash_completion.d/git ]; then
 	. /etc/bash_completion.d/git
 fi
 
-if [ -f ~/.local/bin/bashmarks.sh ]; then
-	. ~/.local/bin/bashmarks.sh
+if [ -f ~/.kfieldho/bin/bashmarks.sh ]; then
+	. ~/.kfieldho/bin/bashmarks.sh
 fi
 
 # Add local reuby gems paths, mostly for tmuxinator
@@ -155,9 +155,9 @@ if [ -f /Applications/DeltaWalker.app/Contents/MacOS/dw ]; then
 	alias dw="/Applications/DeltaWalker.app/Contents/MacOS/dw"
 fi
 
-export PATH=~/.local/bin:${PATH}
-if [ -d ~/.local-$(hostname)/bin ]; then
-	export PATH=~/.local-$(hostname)/bin:${PATH}
+export PATH=~/.kfieldho/bin:${PATH}
+if [ -d ~/.kfieldho/bin ]; then
+	export PATH=~/.kfieldho-$(hostname)/bin:${PATH}
 fi
 
 # For MacPorts, mostly
