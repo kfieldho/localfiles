@@ -108,6 +108,9 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
+if [ -f /opt/local/etc/bash_completion ]; then
+    . /opt/local/etc/bash_completion
+fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
@@ -175,6 +178,9 @@ if [ -f /usr/local/bin/brew ]; then
 		. $(brew --prefix)/etc/bash_completion
 	fi
 fi
+
+# Support Item Integration on Mac if it's there
+test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 
 # Some handy functions
 tmake () { make  $@ 2>&1 | tee make.out; }
