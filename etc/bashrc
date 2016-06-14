@@ -66,7 +66,9 @@ unset color_prompt force_color_prompt
 
 # Append to history after every command so that killed terminals etc. don't loose history
 # Use "history -n" to reload the current history file
-export PROMPT_COMMAND="history -a"
+#export PROMPT_COMMAND="history -a"
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in

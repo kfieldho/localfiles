@@ -20,6 +20,7 @@ cd ${my_home}
 #-
 [ -d ${my_home}/.kfieldho ] || git clone ${dot_local_repo} .kfieldho
 [ -d ${my_home}/.vim ] || git clone ${dot_vim_repo} .vim
+[ -d ${my_home}/.logs ] || mkdir ${my_home}/.logs
 
 #+
 # Now update them
