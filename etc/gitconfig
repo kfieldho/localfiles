@@ -3,3 +3,10 @@
 	email = keith.fieldhouse@kitware.com
 [alias]                                                                                                                                                                              
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit                                         
+	lgnc = log  --no-color --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit                                         
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
