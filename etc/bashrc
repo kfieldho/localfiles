@@ -160,6 +160,12 @@ if [ -f /Applications/DeltaWalker.app/Contents/MacOS/dw ]; then
 	alias dw="/Applications/DeltaWalker.app/Contents/MacOS/dw"
 fi
 
+if [ -d ~/miniconda ]; then
+	miniconda () {
+			export PATH=~/miniconda/bin:${PATH}
+    }
+fi
+
 export PATH=~/.kfieldho/bin:${PATH}
 if [ -d ~/.kfieldho/bin ]; then
 	export PATH=~/.kfieldho-$(hostname)/bin:${PATH}
