@@ -166,6 +166,18 @@ if [ -d ~/miniconda ]; then
     }
 fi
 
+if [ -d ~/anaconda2 ]; then
+	anaconda2 () {
+			export PATH=~/anaconda2/bin:${PATH}
+    }
+fi
+
+if [ -d ~/anaconda3 ]; then
+	anaconda3 () {
+			export PATH=~/anaconda3/bin:${PATH}
+    }
+fi
+
 export PATH=~/.kfieldho/bin:${PATH}
 if [ -d ~/.kfieldho/bin ]; then
 	export PATH=~/.kfieldho-$(hostname)/bin:${PATH}
@@ -191,8 +203,10 @@ fi
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.bash
 
 # Some handy functions
+slog () { grep $@ ~/.logs/*; }
 tmake () { make  $@ 2>&1 | tee make.out; }
 tninja () { ninja  $@ 2>&1 | tee ninja.out; }
 tscons () { scons  $@ 2>&1 | tee scons.out; }
 hgrep() { history | grep $@; }
+lgrep() { grep -i $@ ~/.logs/*; }
 
