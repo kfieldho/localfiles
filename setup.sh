@@ -9,6 +9,22 @@ dot_local_repo="https://github.com/kfieldho/localfiles.git"
 dot_vim_repo="https://github.com/kfieldho/vimfiles.git"
 fzf_repo="https://github.com/junegunn/fzf"
 
+
+platformstr=$(uname)
+
+rg_repo=""
+if [ $platformstr == "Linux" ]; then
+	rg_repo="https://github.com/BurntSushi/ripgrep/releases/download/0.7.1/ripgrep-0.7.1-i686-unknown-linux-musl.tar.gz"
+fi
+if [ $platformstr == "Darwin" ]; then
+	rg_repo="https://github.com/BurntSushi/ripgrep/releases/download/0.7.1/ripgrep-0.7.1-x86_64-apple-darwin.tar.gz"
+fi
+
+if [ ! -z rg_repo ]; then
+	mkdir -p ~/.rg
+	wget -qO- ${rg_repo} | tar xzv  --strip-components=1 -C ~/.rg
+fi
+
 my_home=${HOME}
 
 # For testing

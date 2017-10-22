@@ -226,3 +226,7 @@ fi
 if [ -f ~/GO/bin/todoist ]; then
 	source ~/.kfieldho/etc/todoist.bash
 fi
+
+if [ -d ~/.rg ]; then
+	export PATH=${PATH}:~/.rg
+fi
