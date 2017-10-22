@@ -22,6 +22,7 @@ You'll need to create a GOPATH workspace:
 Then, you can install dep with `go get`:
 
 	$ go get -u github.com/golang/dep/cmd/dep
+	$ export PATH=${PATH}:~/GO/bin
 
 ## Installing TODOIST CLI
 
