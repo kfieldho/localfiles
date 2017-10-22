@@ -217,3 +217,12 @@ if [ -f ~/.fzf.bash ]; then
 	source ~/.fzf.bash
 	source ~/.kfieldho/etc/fzf.bash
 fi
+
+if [ -d ~/GO ]; then
+	export GOPATH=${HOME}/GO
+	export PATH=${PATH}:${HOME}/GO/bin
+fi
+
+if [ -f ~/GO/bin/todoist ]; then
+	source ~/.kfieldho/etc/todoist.bash
+fi
