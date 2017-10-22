@@ -212,3 +212,8 @@ tscons () { scons  $@ 2>&1 | tee scons.out; }
 hgrep() { history | grep $@; }
 lgrep() { grep -i $@ ~/.logs/*; }
 
+
+if [ -f ~/.fzf.bash ]; then
+	source ~/.fzf.bash
+	source ~/.kfieldho/etc/fzf.bash
+fi
