@@ -4,22 +4,22 @@ todoist_writecmd (){ perl -e 'ioctl STDOUT, 0x5412, $_ for split //, do{ chomp($
 
 tc() {
 	task=$(todoist --color list -f "overdue | today" | fzf | awk '{ print $1}')
-	echo "todoist close ${task}" | todoist_writecmd
+	todoist close ${task}
 }
 
 tcc() {
 	task=$(todoist --color list  | fzf | awk '{ print $1}')
-	echo "todoist close ${task}" | todoist_writecmd
+	todoist close ${task}
 }
 
 ts() {
 	task=$(todoist --color list -f "overdue | today" | fzf | awk '{ print $1}')
-	echo "todoist --color show ${task}" | todoist_writecmd
+	todoist --color show ${task}
 }
 
 tss() {
 	task=$(todoist --color list | fzf | awk '{ print $1}')
-	echo "todoist --color show ${task}" | todoist_writecmd
+	todoist --color show ${task}
 }
 
 ta() {
@@ -29,7 +29,7 @@ ta() {
 
 tl() {
 	task=$(todoist --color list -f "overdue | today" | fzf | awk '{ print $1}')
-	echo "${task}"
+	todoist --color show ${task}
 }
 
 todo() {
@@ -38,6 +38,6 @@ todo() {
 
 tll() {
 	task=$(todoist --color list | fzf | awk '{ print $1}')
-	echo "${task}"
+	todoist --color show ${task}
 }
 
