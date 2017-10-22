@@ -220,7 +220,7 @@ fi
 
 if [ -d ~/GO ]; then
 	export GOPATH=${HOME}/GO
-	export PATH=${PATH}/${HOME}/GO/bin
+	export PATH=${PATH}:${HOME}/GO/bin
 fi
 
 if [ -f ~/GO/bin/todoist ]; then
