@@ -34,7 +34,7 @@ cd ${my_home}/.fzf && git checkout master && git pull && git submodule update --
 #+
 # Install fzf
 #-
-cd ${my_home}/.fzf && ./install.sh
+cd ${my_home}/.fzf && ./install
 
 #+
 # Set up dot files (purposely making relative links)
