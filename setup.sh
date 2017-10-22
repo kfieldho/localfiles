@@ -7,6 +7,7 @@ NOW=$(date +"%Y-%m-%d-%H-%M-%S")
 
 dot_local_repo="https://github.com/kfieldho/localfiles.git"
 dot_vim_repo="https://github.com/kfieldho/vimfiles.git"
+fzf_repo="https://github.com/junegunn/fzf"
 
 my_home=${HOME}
 
@@ -21,12 +22,19 @@ cd ${my_home}
 [ -d ${my_home}/.kfieldho ] || git clone ${dot_local_repo} .kfieldho
 [ -d ${my_home}/.vim ] || git clone ${dot_vim_repo} .vim
 [ -d ${my_home}/.logs ] || mkdir ${my_home}/.logs
+[ -d ${my_home}/.fzf ] || git clone ${fzf_repo} ${my_home}/.fzf
 
 #+
 # Now update them
 #-
 cd ${my_home}/.kfieldho && git checkout master && git pull && git submodule update --init
 cd ${my_home}/.vim && git checkout master && git pull && git submodule update --init
+cd ${my_home}/.fzf && git checkout master && git pull && git submodule update --init
+
+#+
+# Install fzf
+#-
+cd ${my_home}/.fzf && ./install
 
 #+
 # Set up dot files (purposely making relative links)
