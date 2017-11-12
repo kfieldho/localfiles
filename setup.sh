@@ -50,7 +50,7 @@ cd ${my_home}/.fzf && git checkout master && git pull && git submodule update --
 #+
 # Install fzf
 #-
-cd ${my_home}/.fzf && ./install
+cd ${my_home}/.fzf && ./install --completion --key-bindings
 
 #+
 # Set up dot files (purposely making relative links)
