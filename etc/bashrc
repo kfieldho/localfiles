@@ -246,3 +246,7 @@ fi
 if [ -d ~/.rg ]; then
 	export PATH=${PATH}:~/.rg
 fi
+
+if [ -f /opt//local/share/autojump/autojump.bash ]; then
+  source /opt/local/share/autojump/autojump.bash
+fi
