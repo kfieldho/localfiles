@@ -213,6 +213,22 @@ hgrep() { history | grep $@; }
 lgrep() { grep -i $@ ~/.logs/*; }
 
 
+git-branch-dates() {
+    merge_arg=""
+    [ "$1" == "merged" ] && merge_arg="--merged"
+    [ "$1" == "notmerged" ] && merge_arg="--no-merged"
+
+    echo "Local Refs:"
+    git for-each-ref  --sort=committerdate refs/heads/ --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);(%(color:green)%(committerdate:local)%(color:reset));%(authorname);%(contents:subject)' ${merge_arg} | column -t -s ';'
+    echo ""
+    echo "Remote Refs"
+    git for-each-ref  --sort=committerdate refs/remotes/ --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);(%(color:green)%(committerdate:local)%(color:reset));%(authorname);%(contents:subject)' ${merge_arg} | column -t -s ';'
+    echo ""
+    echo "Tags"
+    git for-each-ref  --sort=committerdate refs/tags/ --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset);%(color:yellow)%(refname:short)%(color:reset);(%(color:green)%(committerdate:local)%(color:reset));%(authorname);%(contents:subject)' ${merge_arg} | column -t -s ';'
+
+}
+
 if [ -f ~/.fzf.bash ]; then
 	source ~/.fzf.bash
 	source ~/.kfieldho/etc/fzf.bash
