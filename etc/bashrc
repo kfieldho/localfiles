@@ -112,6 +112,7 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
@@ -294,3 +295,5 @@ fi
 if [ -f /opt//local/share/autojump/autojump.bash ]; then
   source /opt/local/share/autojump/autojump.bash
 fi
+
+[ -f /Users/kfieldho/Library/Preferences/org.dystroy.broot/launcher/bash/br ] && source /Users/kfieldho/Library/Preferences/org.dystroy.broot/launcher/bash/br
