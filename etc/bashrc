@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Minimal PATH for non-interactive mode
+export PATH=${PATH}:/usr/local/bin
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -292,8 +295,19 @@ if [ -d ~/.rg ]; then
 	export PATH=${PATH}:~/.rg
 fi
 
+if [ -d /usr/local/bin ]; then
+  export PATH=${PATH}:/usr/local/bin
+fi
+
 if [ -f /opt//local/share/autojump/autojump.bash ]; then
   source /opt/local/share/autojump/autojump.bash
 fi
 
 [ -f /Users/kfieldho/Library/Preferences/org.dystroy.broot/launcher/bash/br ] && source /Users/kfieldho/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+fi
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add
